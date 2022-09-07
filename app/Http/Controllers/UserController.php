@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -17,6 +18,27 @@ class UserController extends Controller
         return view('register.login',['title'=> 'login']);
     }
 
+    public function store_register(Request $request){
+        $validatedDate = $request->validate([
+            'nip' => 'required|max:18|min:18',
+            'username' => 'required',
+            'nama' => 'required|max:255',
+            'jabatan' => 'required',
+            'nama_bidang' => 'required',
+            'hak_akses' => 'required',
+            'no_hp' => 'required',
+            'password' => 'required|min:6',
+        ]);
+
+        $validatedDate['password'] = bcrypt($validatedDate['password']);
+
+        User::create($validatedDate);
+
+        $request->accepts('session');
+        session()->flash('success', 'Berhasil menambahkan user!');
+
+        return redirect('/login');
+    }
     public function authenticate(Request $request)
     {
        $credentials = $request->validate([

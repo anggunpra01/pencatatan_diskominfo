@@ -15,15 +15,15 @@ use App\Http\Controllers\PencatatController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 
 Route::get('/login',[UserController::class, 'login']);
 
 Route::get('/register',[UserController::class, 'register']);
-Route::post('/register',[UserController::class, 'store']);
+Route::post('/register',[UserController::class, 'store_register']);
 
 Route::get('/dashboard', function () {
     return view('home.dashboard');

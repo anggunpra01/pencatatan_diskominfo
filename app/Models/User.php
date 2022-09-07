@@ -25,8 +25,7 @@ class User extends Authenticatable
         'nama_bidang',
         'no_hp',
         'hak_akses',
-        'password,'
-
+        'password',
     ];
 
     /**
