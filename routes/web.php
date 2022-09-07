@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\PencatatController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,11 +18,17 @@ use App\Http\Controllers\UserController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/dashboard', function () {
-    return view('home.dashboard');
-});
+
+
 Route::get('/login',[UserController::class, 'login']);
 
 Route::get('/register',[UserController::class, 'register']);
 Route::post('/register',[UserController::class, 'store']);
+
+Route::get('/dashboard', function () {
+    return view('home.dashboard');
+});
+
+Route::resource('/home/laporan', LaporanController::class);
+Route::resource('/home/pencatat', PencatatController::class);
 

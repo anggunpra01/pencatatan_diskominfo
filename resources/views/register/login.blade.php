@@ -2,23 +2,24 @@
 
 @section('container')
 <div class="row">
-  <main class="col-md-5 position-absolute top-50 start-50 translate-middle">
-    <form>
-      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-  
-      <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Email address</label>
-      </div>
-      <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-        <label for="floatingPassword">Password</label>
-      </div><br>
+  <div class="text-center">
+    <h1 class="h4 text-gray-900 mb-4">Please Log In!</h1>
 
-      <button class="w-100 btn btn-lg btn-warning" type="submit">Sign in</button>
-  
-    </form>
-  </main>
+  <form class="user ">
+    <div class="form-group row  justify-content-center">
+        <div class="col-sm-3 mb-5 mb-sm-3">
+            <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                placeholder="NIP">
+        </div>
+    </div>
+    <div class="form-group row  justify-content-center">
+      <div class="col-sm-3 mb-5 mb-sm-3">
+          <input type="password" class="form-control form-control-user" id="exampleFirstName"
+              placeholder="Password">
+      </div>
+    </div>
+    <button class="col-sm-2 btn btn-dark btn-user btn-block  justify-content-center">Login</button>
+  </form>
 </div>
 
 @endsection

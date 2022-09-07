@@ -11,7 +11,7 @@
     <title>IT DIARY</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
         <a class="navbar-brand" href="#">Diskominfo Jabar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,13 +20,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/login">Login</a>
+              <a class="nav-link {{ Request::is('/login')?'class=active':'' }}" aria-current="page" href="/login">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/register">Register</a>
+              <a class="nav-link {{ Request::is('/register')?'active':'' }}" href="/register">Register</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/dashboard">Dashbord</a>
+              <a class="nav-link {{ Request::is('/dashboard')?'active':'' }}" href="/dashboard">Dashbord</a>
             </li>
           </ul>
         </div>

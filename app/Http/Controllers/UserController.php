@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    public function register()
+    {
+        return view('register.register',['title'=> 'register']);
+    }
     public function login()
     {
         return view('register.login',['title'=> 'login']);
@@ -37,10 +41,7 @@ class UserController extends Controller
      
         return redirect('/login');
     }
-    public function register()
-    {
-        return view('register.register',['title'=> 'register', 'active=>register']);
-    }
+    
     
 }
 
