@@ -13,19 +13,6 @@
             Laporan
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link {{ Request::is('home/pencatat')?'active':'' }}" aria-current="page" href="/home/pencatat">
-            <span data-feather="book"></span>
-            Pencatat
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {{ Request::is('dashboard')?'active':'' }}" aria-current="page" href="/dashboard">
-            <span data-feather="book"></span>
-            Eksekutor
-          </a>
-        </li>
-        
       </ul>
 
      

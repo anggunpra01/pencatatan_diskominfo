@@ -13,10 +13,6 @@ class UserController extends Controller
     {
         return view('register.register',['title'=> 'register']);
     }
-    public function login()
-    {
-        return view('register.login',['title'=> 'login']);
-    }
 
     public function store_register(Request $request){
         $validatedDate = $request->validate([
@@ -39,16 +35,20 @@ class UserController extends Controller
 
         return redirect('/login');
     }
+    public function login()
+    {
+        return view('register.login',['title'=> 'login']);
+    }
     public function authenticate(Request $request)
     {
        $credentials = $request->validate([
         'nip'=>'required|max:18|min:18',
-        'password'=> 'required|max:18|min:8'
+        'password'=> 'required|max:6|min:6'
         ]);
 
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
-            return redirect()->intended('/kehadiran');
+            return redirect()->intended('/dashboard');
         }
 
         return back()->with('loginError','login Failed!');

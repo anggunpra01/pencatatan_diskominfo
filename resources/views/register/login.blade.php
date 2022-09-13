@@ -2,24 +2,43 @@
 
 @section('container')
 <div class="row">
-  <div class="text-center">
-    <h1 class="h4 text-gray-900 mb-4">Please Log In!</h1>
+  <div class="col-lg-3">
 
-  <form class="user ">
-    <div class="form-group row  justify-content-center">
-        <div class="col-sm-3 mb-5 mb-sm-3">
-            <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                placeholder="NIP">
-        </div>
+    @if (session()->has('success'))
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      {{ session('success') }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    <div class="form-group row  justify-content-center">
-      <div class="col-sm-3 mb-5 mb-sm-3">
-          <input type="password" class="form-control form-control-user" id="exampleFirstName"
-              placeholder="Password">
-      </div>
+    @endif
+    @if (session()->has('loginError'))
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      {{ session('loginError') }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    <button class="col-sm-2 btn btn-dark btn-user btn-block  justify-content-center">Login</button>
-  </form>
+    @endif
+
+
+      <main class="form-signin w-100 m-auto">
+          <form action="\login" method="post">  
+            @csrf        
+            <div class="form-floating">
+              <label for="nip">NIP</label>
+              @error('nip')
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
+            @enderror
+              <input type="text" name="nip" class="form-control @error('nip') is-invalid @enderror" id="nip" placeholder="NIP" autofocus required>
+            </div>
+            <div class="form-floating">
+              <label for="password">Password</label>
+              <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+            </div><br>
+            <button class="w-100 btn btn-lg btn-dark justify-content-center" type="submit">Sign in</button>
+          </form>
+        </main>
+     
+  </div>
 </div>
 
 @endsection
