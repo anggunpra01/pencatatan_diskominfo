@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Laporan;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 
 class LaporanController extends Controller
@@ -38,6 +39,8 @@ class LaporanController extends Controller
     public function store(Request $request)
     {
         $validatedDate =$request->validate([
+            'token'=>'required',
+            'slug'=>'required',
             'nippencatat'=> 'required',
             'namapencatat'=> 'required',
             'tanggalmencatat'=> 'required',
@@ -107,5 +110,10 @@ class LaporanController extends Controller
     public function destroy(Laporan $laporan)
     {
         //
+    }
+
+    public function cekSlug(Request $request){
+        $slug = SlugService::createSlug(Laporan::class, 'slug', $request->token);
+        return response()->json(['slug'=>$slug]);
     }
 }

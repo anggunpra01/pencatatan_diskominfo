@@ -6,7 +6,19 @@
 <div class="row">
   <form action="/create" method="post">
     @csrf
+    <div class="form-group row ">
+       <div class="col-sm-3 mb-5 mb-sm-3">
+      <input type="text" class="form-control form-control-user" id="token" name="token"
+          placeholder="token">
+    </div>
+      <div class="col-sm-3">
+          <input type="text" class="form-control form-control-user" id="slug" name="slug"
+              placeholder="slug" disabled readonly>
+      </div>
+    </div>
+   
     {{-- pencatat --}}
+    
     <div class="pencatat">
 
         <h3 class="h6 text-gray-100 mb-2">Pencatat</h3>
@@ -158,4 +170,15 @@
     </form>
   </form>
 </div>
+
+<script>
+  const token = document.querySelector('#token');
+  const slug = document.querySelector('#slug');
+
+  token.addEventListener('change', function(){
+    fetch('/home/cekSlug?token=' + token.value)
+    .then(response => response.json())
+    .then(data => slug.value = data.slug)
+  });
+</script>
 @endsection

@@ -16,7 +16,7 @@ use App\Http\Controllers\PencatatController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('register.login');
 });
 
 
@@ -31,7 +31,9 @@ Route::get('/dashboard', function () {
     return view('home.dashboard');
 });
 
+
+
+Route::get('/home/cekSlug', [LaporanController::class, 'cekSlug']);
 Route::resource('/home/laporan', LaporanController::class);
-Route::resource('/home/pencatat', PencatatController::class);
 Route::post('/logout', [UserController::class, 'logout']);
 
