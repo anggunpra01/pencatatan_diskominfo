@@ -13,8 +13,18 @@
             Laporan
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/login">
+            <span data-feather="log-out"></span>
+            Logout
+          </a>
+        </li>
+
       </ul>
 
      
     </div>
   </nav>
+  {{-- <div class="nav-item text-nowrap">
+    <a class="nav-link px-3" href="/login">Log out</a>
+  </div> --}}

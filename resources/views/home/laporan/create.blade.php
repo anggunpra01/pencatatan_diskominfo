@@ -4,7 +4,8 @@
     <h1 class="h2">Laporan</h1>
 </div>
 <div class="row">
-
+  <form action="/create" method="post">
+    @csrf
     {{-- pencatat --}}
     <div class="pencatat">
 
@@ -13,19 +14,17 @@
       <form class="user ">
         <div class="form-group row ">
             <div class="col-sm-3 mb-5 mb-sm-3">
-                <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                <input type="text" class="form-control form-control-user" id="nippencatat" name="nippencatat"
                     placeholder="Nip Pencatat">
             </div>
             <div class="col-sm-3">
-                <input type="text" class="form-control form-control-user" id="exampleLastName"
+                <input type="text" class="form-control form-control-user" id="namapencatat" name="namapencatat"
                     placeholder="Nama Pencatat">
             </div>
             <div class="col-sm-3">
                 <div class="input-group">
-                    
-                    <span class="input-group-text"> <span data-feather="calendar"></span></span>
                     <div class="form-floating">
-                      <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Username">
+                      <input type="date" class="form-control" id="tanggalmencatat" name="tanggalmencatat" placeholder="tanggal mencatat">
                       <label for="floatingInputGroup1">Tanggal Mencatat</label>
                     </div>
                   </div>
@@ -44,14 +43,14 @@
           <form class="user ">
               <div class="form-group row">
                   <div class="col-sm-3 mb-5 mb-sm-3">
-                      <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                      <input type="text" class="form-control form-control-user" id="namapelapor" name="namapelapor"
                           placeholder="Nama Pelapor">
                   </div>
               
               <div class="form-group row  ">
                 <div class="col-sm-3 mb-5 mb-sm-3">
                   <label for="floatingInput">Nama Bidang</label>
-                  <select class="form-select" id="floatingSelect" aria-label="Floating label select example" placeholder="Nama Bidang">
+                  <select class="form-select" id="namabidang" name="namabidang" aria-label="Floating label select example" placeholder="Nama Bidang" >
                   <option value="KEU">KEUANGAN</option>
                   <option value="PRC">PERENCANAAN</option>
                   <option value="KPG">KEPEGAWAIAN</option>
@@ -64,12 +63,12 @@
                 </div>
               </div>
               <div class="col-sm-3 mb-5 mb-sm-3">
-                  <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                  <input type="text" class="form-control form-control-user" id="nomorhp" name="nomorhp"
                       placeholder="Nomor Hp">
               </div>
           </div>
           <div class=" col-sm-3 mb-5 mb-sm-3 ">
-            <input type="text" class="form-control form-control-user" style="height: 200px" id="exampleFirstName "
+            <input type="text" class="form-control form-control-user" style="height: 200px" id="permasalahan" name="permasalahan"
                 placeholder="Permasalahan">
         </div>
       </div>
@@ -81,38 +80,36 @@
       </div>
       <div class="form-group row ">
         <div class="col-sm-3 mb-5 mb-sm-3">
-            <input type="text" class="form-control form-control-user" id="exampleFirstName"
+            <input type="text" class="form-control form-control-user" id="nipeksekutor" name="nipeksekutor"
                 placeholder="Nip Eksekutor">
         </div>
         <div class="col-sm-3">
-            <input type="text" class="form-control form-control-user" id="exampleLastName"
+            <input type="text" class="form-control form-control-user" id="namaeksekutor" name="namaeksekutor"
                 placeholder="Nama Eksekutor">
         </div>
       </div>
       <div class="form-group row ">
         <div class="col-sm-3 mb-5 mb-sm-3">
             <label for="floatingInput">Kategori</label>
-            <select class="form-select" id="floatingSelect" aria-label="Floating label select example" placeholder="Hak Akses">
-              <option value="1">Jaringan</option>
-              <option value="2">CCTV</option>
-              <option value="3">Komputer</option>
-              <option value="1">Printer</option>
-              <option value="2">Aplikasi</option>
+            <select class="form-select" id="kategori" name="kategori" aria-label="Floating label select example" placeholder="Hak Akses">
+              <option value="Jaringan">Jaringan</option>
+              <option value="CCTV">CCTV</option>
+              <option value="Komputer">Komputer</option>
+              <option value="Printer">Printer</option>
+              <option value="Aplikasi">Aplikasi</option>
             </select>
         </div>
         <div class="col-sm-3">
             <label for="floatingInput">Status</label>
-            <select class="form-select" id="floatingSelect" aria-label="Floating label select example" placeholder="Hak Akses">
-              <option value="1">Self Service</option>
-              <option value="2">Vendor</option>
+            <select class="form-select" id="status" name="status" aria-label="Floating label select example" placeholder="Hak Akses">
+              <option value="Self Service">Self Service</option>
+              <option value="Vendor">Vendor</option>
             </select>
         </div>
         <div class="col-sm-3">
           <div class="input-group">
-                  
-              <span class="input-group-text"> <span data-feather="calendar"></span></span>
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Username">
+                <input type="date" class="form-control" id="tanggalselesai" name="tanggalselesai" placeholder="Username">
                 <label for="floatingInputGroup1">Tanggal Selesai</label>
               </div>
           </div>
@@ -120,7 +117,7 @@
       </div>
       <div class="form-group row ">
         <div class=" col-sm-3 mb-5 mb-sm-3 ">
-            <input type="text" class="form-control form-control-user" style="height: 200px " id="exampleFirstName "
+            <input type="text" class="form-control form-control-user" style="height: 200px " id="solusi " name="solusi"
                 placeholder="Solusi Deskripsi">
         </div>
         
@@ -135,25 +132,21 @@
       <form class="user ">
         <div class="form-group row ">
             <div class="col-sm-3 mb-5 mb-sm-3">
-                <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                <input type="text" class="form-control form-control-user" id="namavendor" name="namavendor"
                     placeholder="Nama Vendor">
             </div>
             <div class="col-sm-3">
                 <div class="input-group">
-                    
-                    <span class="input-group-text"> <span data-feather="calendar"></span></span>
                     <div class="form-floating">
-                      <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Username">
+                      <input type="date" class="form-control" id="mulaiservice" name="mulaiservice" placeholder="Username">
                       <label for="floatingInputGroup1">Tanggal Mulai Service</label>
                     </div>
                   </div>
             </div>
             <div class="col-sm-3">
                 <div class="input-group">
-                    
-                    <span class="input-group-text"> <span data-feather="calendar"></span></span>
                     <div class="form-floating">
-                      <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Username">
+                      <input type="date" class="form-control" id="selesaiservice" name="selesaiservice" placeholder="Username">
                       <label for="floatingInputGroup1">Tanggal Selesai Service</label>
                     </div>
                   </div>
@@ -163,5 +156,6 @@
     {{-- endvendor --}}
       <button class="col-sm-3 btn btn-dark btn-user btn-block ">Selesai</button>
     </form>
-  </div>
+  </form>
+</div>
 @endsection

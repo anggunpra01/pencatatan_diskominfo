@@ -14,7 +14,9 @@ class LaporanController extends Controller
      */
     public function index()
     {
-        return view ('home.laporan.laporan');
+        return view ('home.laporan.laporan',[
+            'laporans'=> Laporan::all()
+        ]);
     }
 
     /**
@@ -35,7 +37,31 @@ class LaporanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedDate =$request->validate([
+            'nippencatat'=> 'required',
+            'namapencatat'=> 'required',
+            'tanggalmencatat'=> 'required',
+            'namapelapor'=> 'required',
+            'namabidang'=> 'required',
+            'nomorhp'=> 'required',
+            'permasalahan'=> 'required',
+            'nipeksekutor'=> 'required',
+            'namaeksekutor'=> 'required',
+            'kategori'=> 'required',
+            'status'=> 'required',
+            'tanggalselesai'=> 'required',
+            'solusi'=> 'required',
+            'namavendor'=> 'required',
+            'mulaiservice'=> 'required',
+            'selesaiservice'=> 'required'
+        ]);
+
+        Laporan::create($validatedDate);
+
+        $request->accepts('session');
+        session()->flash('success', 'Berhasil menambahkan user!');
+
+        return redirect('/home/laporan');
     }
 
     /**
@@ -46,7 +72,7 @@ class LaporanController extends Controller
      */
     public function show(Laporan $laporan)
     {
-        //
+        return view('home.laporan.show');
     }
 
     /**

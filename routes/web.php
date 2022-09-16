@@ -25,6 +25,7 @@ Route::post('/login',[UserController::class, 'authenticate']);
 
 Route::get('/register',[UserController::class, 'register']);
 Route::post('/register',[UserController::class, 'store_register']);
+Route::post('/create',[LaporanController::class, 'store']);
 
 Route::get('/dashboard', function () {
     return view('home.dashboard');
@@ -32,4 +33,5 @@ Route::get('/dashboard', function () {
 
 Route::resource('/home/laporan', LaporanController::class);
 Route::resource('/home/pencatat', PencatatController::class);
+Route::post('/logout', [UserController::class, 'logout']);
 
