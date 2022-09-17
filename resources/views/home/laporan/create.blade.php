@@ -13,7 +13,7 @@
     </div>
       <div class="col-sm-3">
           <input type="text" class="form-control form-control-user" id="slug" name="slug"
-              placeholder="slug" disabled readonly>
+              placeholder="slug" readonly>
       </div>
     </div>
    

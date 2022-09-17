@@ -7,7 +7,7 @@
     <div class="navbar-nav">
       <li class="nav-item ">
         <a class="nav-link px-3">
-          Welcome Back, {{ auth()->user()->nama }}
+       
         </a>
       </li>
     </div>
