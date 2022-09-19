@@ -15,6 +15,8 @@ class UserController extends Controller
     }
 
     public function store_register(Request $request){
+        $password = bcrypt($request->password);
+        dd($password);
         $validatedDate = $request->validate([
             'nip' => 'required|max:18|min:18',
             'username' => 'required',
@@ -27,6 +29,7 @@ class UserController extends Controller
         ]);
 
         $validatedDate['password'] = bcrypt($validatedDate['password']);
+        dd($validatedDate);
 
         User::create($validatedDate);
 
