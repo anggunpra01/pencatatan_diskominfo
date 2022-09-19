@@ -1,28 +1,29 @@
 @extends('home.layouts.main')
 @section('container')
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+<div class=" mb-5 mt-3 border shadow">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3  m-3 border-bottom">
     <h1 class="h2">Laporan</h1>
-</div>
-<div class="row">
+  </div>
+  <div class="row">
   <form action="/create" method="post">
     @csrf
-    <div class="form-group row ">
-       <div class="col-sm-3 mb-5 mb-sm-3">
-      <input type="text" class="form-control form-control-user" id="token" name="token"
+    <div class="form-group row m-3">
+      <div class="col-sm-3 mb-5 mb-sm-3">
+        <input type="text" class="form-control form-control-user" id="token" name="token"
           placeholder="token">
-    </div>
+      </div>
       <div class="col-sm-3">
           <input type="text" class="form-control form-control-user" id="slug" name="slug"
-              placeholder="slug" disabled readonly>
+              placeholder="slug" readonly>
       </div>
     </div>
    
     {{-- pencatat --}}
     
-    <div class="pencatat">
-
+    <div class=" form-group row mb-5 mb-sm-3 m-3 border shadow col-sm-10">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h3 class="h6 text-gray-100 mb-2">Pencatat</h3>
-    
+        </div>
       <form class="user ">
         <div class="form-group row ">
             <div class="col-sm-3 mb-5 mb-sm-3">
@@ -45,22 +46,23 @@
       
     </div>
     {{-- endpencatat --}}
-        {{-- pelapor --}}
-        <div class="pelapor">
+    <div class="form-group row mb-5 mb-sm-3 m-3 gap-4">
+      {{-- pelapor --}}
+        <div class="col-sm-5 mb-5 mb-sm-5 bg-darkborder shadow">
         
-          <div class="text">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h3 class="h6 text-gray-100 mb-2">Pelapor</h3>
           </div>
         
           <form class="user ">
               <div class="form-group row">
-                  <div class="col-sm-3 mb-5 mb-sm-3">
-                      <input type="text" class="form-control form-control-user" id="namapelapor" name="namapelapor"
-                          placeholder="Nama Pelapor">
+                  <div class="col-sm-8 mb-5 mb-sm-3">
+                      <label>Nama Pelapor</label>
+                      <input type="text" class="form-control form-control-user" id="namapelapor" name="namapelapor">
                   </div>
               
-              <div class="form-group row  ">
-                <div class="col-sm-3 mb-5 mb-sm-3">
+                <div class="form-group row  ">
+                  <div class="col-sm-8 mb-5 mb-sm-3">
                   <label for="floatingInput">Nama Bidang</label>
                   <select class="form-select" id="namabidang" name="namabidang" aria-label="Floating label select example" placeholder="Nama Bidang" >
                   <option value="KEU">KEUANGAN</option>
@@ -71,73 +73,74 @@
                   <option value="JDS">UPTD PUSAT LAYANAN DIGITAL DATA DAN INFORMASI GEOSPASIAL</option>
                   <option value="STS">BIDANG STATISTIK</option>
                   <option value="SKM">BIDANG PERSANDIAN DAN KEAMANAN INFORMASI</option>
-                </select>
+                  </select>
+                  </div>
+                </div>
+                <div class="col-sm-8 mb-5 mb-sm-3">
+                  <label>Nomor HP</label>
+                  <input type="text" class="form-control form-control-user" id="nomorhp" name="nomorhp">
                 </div>
               </div>
-              <div class="col-sm-3 mb-5 mb-sm-3">
-                  <input type="text" class="form-control form-control-user" id="nomorhp" name="nomorhp"
-                      placeholder="Nomor Hp">
-              </div>
+          <div class=" col-sm-10 mb-5 mb-sm-3 ">
+            <textarea type="text" class="form-control form-control-user" style="height: 100px" id="permasalahan" name="permasalahan"
+            placeholder="Permasalahan"></textarea>
           </div>
-          <div class=" col-sm-3 mb-5 mb-sm-3 ">
-            <input type="text" class="form-control form-control-user" style="height: 200px" id="permasalahan" name="permasalahan"
-                placeholder="Permasalahan">
         </div>
-      </div>
       {{-- endpelapor --}}
-
-    {{-- eksekutor --}}
-    <div class="eksekutor">
-      <h3 class="h6 text-gray-100 mb-2">Eksekutor</h3>
-      </div>
-      <div class="form-group row ">
-        <div class="col-sm-3 mb-5 mb-sm-3">
-            <input type="text" class="form-control form-control-user" id="nipeksekutor" name="nipeksekutor"
-                placeholder="Nip Eksekutor">
+      {{-- eksekutor --}}
+      <div class="col-sm-5 border shadow">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h3 class="h6 text-gray-100 mb-2">Eksekutor</h3>
         </div>
-        <div class="col-sm-3">
-            <input type="text" class="form-control form-control-user" id="namaeksekutor" name="namaeksekutor"
-                placeholder="Nama Eksekutor">
-        </div>
-      </div>
-      <div class="form-group row ">
-        <div class="col-sm-3 mb-5 mb-sm-3">
-            <label for="floatingInput">Kategori</label>
-            <select class="form-select" id="kategori" name="kategori" aria-label="Floating label select example" placeholder="Hak Akses">
-              <option value="Jaringan">Jaringan</option>
-              <option value="CCTV">CCTV</option>
-              <option value="Komputer">Komputer</option>
-              <option value="Printer">Printer</option>
-              <option value="Aplikasi">Aplikasi</option>
-            </select>
-        </div>
-        <div class="col-sm-3">
-            <label for="floatingInput">Status</label>
-            <select class="form-select" id="status" name="status" aria-label="Floating label select example" placeholder="Hak Akses">
-              <option value="Self Service">Self Service</option>
-              <option value="Vendor">Vendor</option>
-            </select>
-        </div>
-        <div class="col-sm-3">
-          <div class="input-group">
-              <div class="form-floating">
-                <input type="date" class="form-control" id="tanggalselesai" name="tanggalselesai" placeholder="Username">
-                <label for="floatingInputGroup1">Tanggal Selesai</label>
-              </div>
+        <div class="form-group row ">
+          <div class="col-sm-8 mb-5 mb-sm-3">
+              <input type="text" class="form-control form-control-user" id="nipeksekutor" name="nipeksekutor"
+                  placeholder="Nip Eksekutor">
           </div>
-      </div>
-      </div>
-      <div class="form-group row ">
-        <div class=" col-sm-3 mb-5 mb-sm-3 ">
-            <input type="text" class="form-control form-control-user" style="height: 200px " id="solusi " name="solusi"
-                placeholder="Solusi Deskripsi">
+          <div class="col-sm-8">
+              <input type="text" class="form-control form-control-user" id="namaeksekutor" name="namaeksekutor"
+                  placeholder="Nama Eksekutor">
+          </div>
         </div>
-        
+        <div class="form-group row ">
+          <div class="col-sm-8 mb-5 mb-sm-3">
+              <label for="floatingInput">Kategori</label>
+              <select class="form-select" id="kategori" name="kategori" aria-label="Floating label select example" placeholder="Hak Akses">
+                <option value="Jaringan">Jaringan</option>
+                <option value="CCTV">CCTV</option>
+                <option value="Komputer">Komputer</option>
+                <option value="Printer">Printer</option>
+                <option value="Aplikasi">Aplikasi</option>
+              </select>
+          </div>
+          <div class="col-sm-8 mb-5 mb-sm-3 ">
+              <label for="floatingInput">Status</label>
+              <select class="form-select" id="status" name="status" aria-label="Floating label select example" placeholder="Hak Akses">
+                <option value="Self Service">Self Service</option>
+                <option value="Vendor">Vendor</option>
+              </select>
+          </div>
+          <div class="col-sm-8 mb-5 mb-sm-3 ">
+            <div class="input-group">
+                <div class="form-floating">
+                  <input type="date" class="form-control" id="tanggalselesai" name="tanggalselesai" placeholder="tanggalselesai">
+                  <label for="floatingInputGroup1">Tanggal Selesai</label>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row ">
+          <div class=" col-sm-10 mb-5 mb-sm-3 ">
+            <textarea type="text" class="form-control form-control-user" style="height: 100px " id="solusi " name="solusi"
+            placeholder="Solusi Deskripsi"></textarea>
+          </div> 
+        </div>
       </div>
+      {{-- endeksekutor --}}
     </div>
-    {{-- endeksekutor --}}
+
     {{-- vendor --}}
-    <div class="pencatat">
+    <div class="form-group row mb-5 mb-sm-3 m-3 border shadow col-sm-10">
 
         <h3 class="h6 text-gray-100 mb-2">Vendor</h3>
     
@@ -166,7 +169,7 @@
         </div>
     </div>
     {{-- endvendor --}}
-      <button class="col-sm-3 btn btn-dark btn-user btn-block ">Selesai</button>
+    <button class="col-sm-3 m-3 mb-3 btn btn-dark btn-user btn-block">Selesai</button>
     </form>
   </form>
 </div>
@@ -181,4 +184,5 @@
     .then(data => slug.value = data.slug)
   });
 </script>
+</div>
 @endsection

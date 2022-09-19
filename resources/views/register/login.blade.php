@@ -1,14 +1,16 @@
 @extends('layouts.navbar')
 
 @section('container')
+
 <div class="row justify-content-center">
+  <div class="p-5 mb-5 w-25 mx-auto rounded-3 bg-secondary bg-gradient text-white">
   <center><div class="img" widht="200">
     <img src="img/logoDiskominfo.png" alt="Diskominfo"  height="50">
   </div></center>
   <div class="text-center">
     <h1 class="h4 text-gray-900 mb-4"> Please Login!</h1>
   </div>
-  <div class="col-lg-3">
+  <div class="col-lg-15">
 
     @if (session()->has('success'))
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -27,21 +29,22 @@
       <main class="form-signin ">
           <form action="\login" method="post">  
             @csrf        
-            <div class="form-floating">
-              @error('nip')
-            <div class="invalid-feedback">
-              {{ $message }}
+            <div class="col-sm-15 mb-5 mb-sm-3">
+                @error('nip')
+                <div class="invalid-feedback">
+                {{ $message }}
+                </div>
+                @enderror
+                <input type="text" name="nip" class="form-control @error('nip') is-invalid @enderror" id="nip" placeholder="NIP" autofocus required>
             </div>
-            @enderror
-              <input type="text" name="nip" class="form-control @error('nip') is-invalid @enderror" id="nip" placeholder="NIP" autofocus required>
-            </div>
-            <div class="form-floating">
+            <div class="col-sm-15 mb-5 mb-sm-3">
               <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
-            </div><br>
-            <button class="w-100 btn btn-lg btn-dark" type="submit">Sign in</button>
+              </div>
+              <button class="w-100 btn btn-lg btn-dark" type="submit">Sign in</button>
           </form>
         </main>
      
+  </div>
   </div>
 </div>
 

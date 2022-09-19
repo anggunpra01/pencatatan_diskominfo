@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Laporan;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Contracts\Support\ValidatedData;
 use Illuminate\Http\Request;
 
 class LaporanController extends Controller
@@ -59,12 +60,8 @@ class LaporanController extends Controller
             'selesaiservice'=> 'required'
         ]);
 
-        Laporan::create($validatedDate);
-
-        $request->accepts('session');
-        session()->flash('success', 'Berhasil menambahkan user!');
-
-        return redirect('/home/laporan');
+        Laporan::create($validatedDate); 
+        return redirect('/home/laporan')->with('succes', 'New Post has been Added');
     }
 
     /**
@@ -75,7 +72,8 @@ class LaporanController extends Controller
      */
     public function show(Laporan $laporan)
     {
-        return view('home.laporan.show');
+        return view('home.laporan.show',[
+            'laporan'=> $laporan]);
     }
 
     /**
@@ -86,7 +84,9 @@ class LaporanController extends Controller
      */
     public function edit(Laporan $laporan)
     {
-        //
+        return view ('home.laporan.edit',[
+            'laporan'=>$laporan
+        ]);
     }
 
     /**
@@ -98,7 +98,30 @@ class LaporanController extends Controller
      */
     public function update(Request $request, Laporan $laporan)
     {
-        //
+        $rules =$request->validate([
+            'token'=>'required',
+            'nippencatat'=> 'required',
+            'namapencatat'=> 'required',
+            'tanggalmencatat'=> 'required',
+            'namapelapor'=> 'required',
+            'namabidang'=> 'required',
+            'nomorhp'=> 'required',
+            'permasalahan'=> 'required',
+            'nipeksekutor'=> 'required',
+            'namaeksekutor'=> 'required',
+            'kategori'=> 'required',
+            'status'=> 'required',
+            'tanggalselesai'=> 'required',
+            'solusi'=> 'required',
+            'namavendor'=> 'required',
+            'mulaiservice'=> 'required',
+            'selesaiservice'=> 'required'
+        ]);
+        if ($request->slug != $laporan->slug){
+            $rules['slug']='required';
+        }
+        Laporan::where ('token', $laporan->token)->update($rules); 
+        return redirect('/home/laporan')->with('succes', 'Laporan has been Added');
     }
 
     /**
@@ -109,7 +132,8 @@ class LaporanController extends Controller
      */
     public function destroy(Laporan $laporan)
     {
-        //
+        Laporan::destroy($laporan->id);
+        return redirect('/home/laporan')->with('succes', 'Laporan has been deleted');
     }
 
     public function cekSlug(Request $request){

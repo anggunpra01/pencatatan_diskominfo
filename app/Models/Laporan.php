@@ -39,4 +39,8 @@ class Laporan extends Model
             ]
         ];
     }
+    public function getRouteKeyName()
+    {
+    return 'slug';
+    }
 }

@@ -33,9 +33,9 @@
           <td>{{ $post->namaeksekutor }}</td>
           <td>{{ $post->tanggalselesai }}</td>
           <td>
-            <a href="/home/laporan/show" class="badge bg-info"><span data-feather="eye" ></span></a>
-            <a href="" class="badge bg-warning"><span data-feather="edit" ></span></a>
-            <form action="/home/laporan" method="post" class="d-inline">
+            <a href="/home/laporan/{{ $post->slug }}" class="badge bg-info"><span data-feather="eye" ></span></a>
+            <a href="/home/laporan/{{ $post->slug }}/edit" class="badge bg-warning"><span data-feather="edit" ></span></a>
+            <form action="/home/laporan/{{ $post->slug }}" method="post" class="d-inline">
             @method('delete')
             @csrf
             <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"  ><span data-feather="trash" ></span></button>

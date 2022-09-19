@@ -20,13 +20,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link {{ Request::is('/login')?'class=active':'' }}" aria-current="page" href="/login">Login</a>
+              <a class="nav-link {{ Request::is('/login')?'active':'' }}" aria-current="page"  href="/login">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link {{ Request::is('/register')?'active':'' }}" href="/register">Register</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link {{ Request::is('/dashboard')?'active':'' }}" href="/dashboard">Dashbord</a>
+              <a class="nav-link {{ Request::is('/register')?'active':'' }}" aria-current="page"  href="/register">Register</a>
             </li>
           </ul>
         </div>
