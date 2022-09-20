@@ -9,14 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    // register
     public function register()
     {
         return view('register.register',['title'=> 'register']);
     }
 
     public function store_register(Request $request){
-        $password = bcrypt($request->password);
-        dd($password);
         $validatedDate = $request->validate([
             'nip' => 'required|max:18|min:18',
             'username' => 'required',
@@ -27,9 +26,10 @@ class UserController extends Controller
             'no_hp' => 'required',
             'password' => 'required|min:6',
         ]);
+        $password = bcrypt($request->password);
 
         $validatedDate['password'] = bcrypt($validatedDate['password']);
-        dd($validatedDate);
+
 
         User::create($validatedDate);
 
@@ -38,6 +38,7 @@ class UserController extends Controller
 
         return redirect('/login');
     }
+    // login
     public function login()
     {
         return view('register.login',['title'=> 'login']);
@@ -56,7 +57,7 @@ class UserController extends Controller
 
         return back()->with('loginError','login Failed!');
     }
-
+    // logout
     public function logout(Request $request){
         Auth::logout();
  
