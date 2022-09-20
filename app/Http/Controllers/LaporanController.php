@@ -62,14 +62,9 @@ class LaporanController extends Controller
             'mulaiservice' => 'required',
             'selesaiservice' => 'required'
         ]);
-<<<<<<< HEAD
 
         Laporan::create($validatedDate); 
         return redirect('/home/laporan')->with('succes', 'New Post has been Added');
-=======
-        Laporan::create($validatedDate);
-        return redirect('/home/laporan')->with('success', 'Laporan berhasil ditambahkan');
->>>>>>> 485863b6f98fea8f5f032d4abf06290cf713b9e3
     }
 
     /**
@@ -85,9 +80,8 @@ class LaporanController extends Controller
     }
 
     // edit
-    public function edit($id)
+    public function edit(Laporan $laporan)
     {
-<<<<<<< HEAD
         return view ('home.laporan.edit',[
             'laporan'=>$laporan
         ]);
@@ -139,38 +133,6 @@ class LaporanController extends Controller
         Laporan::destroy($laporan->id);
         return redirect('/home/laporan')->with('succes', 'Laporan has been deleted');
     }
-=======
-        $laporan = Laporan::find($id);
-        return view('home.laporan.edit', compact('laporan'));
-    }
-    // editAttempt
-    public function editAttempt(Request $request, $id)
-    {
-        $laporan = Laporan::find($id);
-        $laporan->token = $request->token;
-        $laporan->slug = $request->slug;
-        $laporan->nippencatat = $request->nippencatat;
-        $laporan->namapencatat = $request->namapencatat;
-        $laporan->tanggalmencatat = $request->tanggalmencatat;
-        $laporan->namapelapor = $request->namapelapor;
-        $laporan->namabidang = $request->namabidang;
-        $laporan->nomorhp = $request->nomorhp;
-        $laporan->permasalahan = $request->permasalahan;
-        $laporan->nipeksekutor = $request->nipeksekutor;
-        $laporan->namaeksekutor = $request->namaeksekutor;
-        $laporan->kategori = $request->kategori;
-        $laporan->status = $request->status;
-        $laporan->tanggalselesai = $request->tanggalselesai;
-        $laporan->solusi = $request->solusi;
-        $laporan->namavendor = $request->namavendor;
-        $laporan->mulaiservice = $request->mulaiservice;
-        $laporan->selesaiservice = $request->selesaiservice;
-        $laporan->save();
-        return redirect('/home/laporan')->with('success', 'Laporan berhasil diubah');
-    }
-
-
->>>>>>> 485863b6f98fea8f5f032d4abf06290cf713b9e3
 
 
 
