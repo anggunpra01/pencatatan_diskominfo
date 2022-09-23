@@ -3,7 +3,7 @@
 @section('container')
 
 <div class="row justify-content-center">
-  <div class="p-5 mb-5 w-25 mx-auto rounded-3 bg-secondary bg-gradient text-white">
+  <div class="p-5 mb-5 w-25 mx-auto rounded-3 bg-primary bg-gradient text-white">
   <center><div class="img" widht="200">
     <img src="img/logoDiskominfo.png" alt="Diskominfo"  height="50">
   </div></center>

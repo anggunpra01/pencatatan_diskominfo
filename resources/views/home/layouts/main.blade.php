@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.101.0">
-    <title>Dashboard Template · Bootstrap v5.2</title>
+    <title>Diskominfo Jabar</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/dashboard/">
 
@@ -28,8 +28,7 @@
 
 <div class="container-fluid">
   <div class="row">
-@include('home.layouts.sidebar')
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <main class="col-md-5 ms-sm-5 col-lg-10 px-0 mt-5">
         @yield('container')
     </main>
   </div>

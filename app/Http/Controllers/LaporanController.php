@@ -52,15 +52,15 @@ class LaporanController extends Controller
             'namabidang' => 'required',
             'nomorhp' => 'required',
             'permasalahan' => 'required',
-            'nipeksekutor' => 'required',
-            'namaeksekutor' => 'required',
-            'kategori' => 'required',
-            'status' => 'required',
-            'tanggalselesai' => 'required',
-            'solusi' => 'required',
-            'namavendor' => 'required',
-            'mulaiservice' => 'required',
-            'selesaiservice' => 'required'
+            'nipeksekutor',
+            'namaeksekutor',
+            'kategori',
+            'status',
+            'tanggalselesai',
+            'solusi',
+            'namavendor',
+            'mulaiservice',
+            'selesaiservice'
         ]);
 
         Laporan::create($validatedDate); 
@@ -97,23 +97,24 @@ class LaporanController extends Controller
     public function update(Request $request, Laporan $laporan)
     {
         $rules =$request->validate([
-            'token'=>'required',
-            'nippencatat'=> 'required',
-            'namapencatat'=> 'required',
-            'tanggalmencatat'=> 'required',
-            'namapelapor'=> 'required',
-            'namabidang'=> 'required',
-            'nomorhp'=> 'required',
-            'permasalahan'=> 'required',
-            'nipeksekutor'=> 'required',
-            'namaeksekutor'=> 'required',
-            'kategori'=> 'required',
-            'status'=> 'required',
-            'tanggalselesai'=> 'required',
-            'solusi'=> 'required',
-            'namavendor'=> 'required',
-            'mulaiservice'=> 'required',
-            'selesaiservice'=> 'required'
+            'token' => 'required',
+            'slug' => 'required',
+            'nippencatat' => 'required',
+            'namapencatat' => 'required',
+            'tanggalmencatat' => 'required',
+            'namapelapor' => 'required',
+            'namabidang' => 'required',
+            'nomorhp' => 'required',
+            'permasalahan' => 'required',
+            'nipeksekutor' => 'required',
+            'namaeksekutor' => 'required',
+            'kategori' => 'required',
+            'status' => 'required',
+            'tanggalselesai' => 'required',
+            'solusi' => 'required',
+            'namavendor',
+            'mulaiservice',
+            'selesaiservice'
         ]);
         if ($request->slug != $laporan->slug){
             $rules['slug']='required';

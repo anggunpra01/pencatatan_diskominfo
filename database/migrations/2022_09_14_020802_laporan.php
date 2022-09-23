@@ -24,15 +24,15 @@ return new class extends Migration
             $table->string('namabidang');
             $table->string('nomorhp');
             $table->string('permasalahan');
-            $table->string('nipeksekutor');
-            $table->string('namaeksekutor');
-            $table->string('kategori');
-            $table->string('status');
-            $table->string('tanggalselesai');
-            $table->string('solusi');
-            $table->string('namavendor');
-            $table->string('mulaiservice');
-            $table->string('selesaiservice');
+            $table->string('nipeksekutor')->nullable();
+            $table->string('namaeksekutor')->nullable();
+            $table->string('kategori')->nullable();
+            $table->string('status')->nullable();
+            $table->string('tanggalselesai')->nullable();
+            $table->string('solusi')->nullable();
+            $table->string('namavendor')->nullable();
+            $table->string('mulaiservice')->nullable();
+            $table->string('selesaiservice')->nullable();
             $table->timestamps();
         });
     }
