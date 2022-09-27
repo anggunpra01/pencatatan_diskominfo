@@ -19,13 +19,7 @@ class LaporanController extends Controller
     {
         $laporan = Laporan::all();
         
-        $tanggals = Carbon::now()->format('Y-m-d');
-        $now = Carbon::now();
-
-        $thnBulan = $now->year . $now->month;
-        $urut = '001';
-        $token = 'LP'. $thnBulan.$urut;
-
+       
         // dd($token);
 
         return view('home.laporan.laporan', ['laporans'=> $laporan]);
@@ -38,7 +32,14 @@ class LaporanController extends Controller
      */
     public function create()
     {
-        return view('home.laporan.create');
+        $tanggals = Carbon::now()->format('Y-m-d');
+        $now = Carbon::now();
+
+        $thnBulan = $now->year . $now->month;
+        $urut = '001';
+        $token = 'LP'. $thnBulan;
+
+        return view('home.laporan.create', ['token'=> $token]);
     }
 
     /**
@@ -49,6 +50,7 @@ class LaporanController extends Controller
      */
     public function store(Request $request)
     {
+
         // dd($request->all());
         $validatedDate = $request->validate([
             'token' => 'required',

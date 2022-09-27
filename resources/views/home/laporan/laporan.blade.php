@@ -11,6 +11,7 @@
       <thead>
         <tr>
           <th scope="col">Nomor</th>
+          <th scope="col">Token</th>
           <th scope="col">Tanggal Catatan</th>
           <th scope="col">Nama Pelapor</th>
           <th scope="col">Bidang Pelapor</th>
@@ -26,6 +27,7 @@
         @foreach ($laporans as $post )  
         <tr>
           <td>{{ $loop->iteration }}</td>
+          <td>{{ $post->token }}</td>
           <td>{{ $post->tanggalmencatat }}</td>
           <td>{{ $post->namapelapor }}</td>
           <td>{{ $post->namabidang }}</td>
