@@ -30,12 +30,12 @@
           <form action="\login" method="post">  
             @csrf        
             <div class="col-sm-15 mb-5 mb-sm-3">
-                @error('nip')
+                @error('username')
                 <div class="invalid-feedback">
                 {{ $message }}
                 </div>
                 @enderror
-                <input type="text" name="nip" class="form-control @error('nip') is-invalid @enderror" id="nip" placeholder="NIP" autofocus required>
+                <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="username" autofocus required autocomplete="disable">
             </div>
             <div class="col-sm-15 mb-5 mb-sm-3">
               <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>

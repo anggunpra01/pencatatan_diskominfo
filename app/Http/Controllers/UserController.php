@@ -46,7 +46,7 @@ class UserController extends Controller
     public function authenticate(Request $request)
     {
        $credentials = $request->validate([
-        'nip'=>'required|max:18|min:18',
+        'username'=>'required|max:255',
         'password'=> 'required|max:6|min:6'
         ]);
 

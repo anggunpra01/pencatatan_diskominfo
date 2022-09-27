@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Laporan;
+use Carbon\Carbon;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Contracts\Support\ValidatedData;
 use Illuminate\Http\Request;
@@ -16,11 +17,18 @@ class LaporanController extends Controller
      */
     public function index()
     {
-        // $laporan = Laporan::all();
-        // dd($laporan);
-        return view('home.laporan.laporan', [
-            'laporans' => Laporan::all()
-        ]);
+        $laporan = Laporan::all();
+        
+        $tanggals = Carbon::now()->format('Y-m-d');
+        $now = Carbon::now();
+
+        $thnBulan = $now->year . $now->month;
+        $urut = '001';
+        $token = 'LP'. $thnBulan.$urut;
+
+        // dd($token);
+
+        return view('home.laporan.laporan', ['laporans'=> $laporan]);
     }
 
     /**

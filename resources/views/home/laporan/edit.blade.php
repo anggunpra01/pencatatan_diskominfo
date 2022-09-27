@@ -14,17 +14,17 @@
           @else
           {{ $laporan->token }}
           @endif
-          " readonly>
+          " readonly disabled>
         </div>
         <div class="col-sm-2">
           <label>Slug</label>
           <input type="text" class="form-control form-control-user" id="slug" name="slug" placeholder="slug" value="
           {{ $laporan->token }}
-         " readonly>
+         " readonly disabled>
         </div>
         <div class="col-sm-2">
           <label>Tanggal Mencatat</label>
-          <input type="date" class="form-control" id="tanggalmencatat" name="tanggalmencatat" value="{{$laporan->tanggalmencatat}}" placeholder="tanggal mencatat" readonly>
+          <input type="date" class="form-control" id="tanggalmencatat" name="tanggalmencatat" value="{{$laporan->tanggalmencatat}}" placeholder="tanggal mencatat" readonly disabled>
         </div>
         <div class="col-sm-2">
           <label>Nip Pencatat</label>
