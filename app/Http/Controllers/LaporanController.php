@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Laporan;
 use Carbon\Carbon;
-use \Cviebrock\EloquentSluggable\Services\SlugService;
-use Illuminate\Contracts\Support\ValidatedData;
+use App\Models\Laporan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Contracts\Support\ValidatedData;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class LaporanController extends Controller
 {
@@ -20,7 +21,9 @@ class LaporanController extends Controller
         $laporan = Laporan::all();
         
        
-        // dd($token);
+        $urut = DB::table('laporans')->orderBy('id', 'desc')->first()->id;
+
+        // dd($urut);
 
         return view('home.laporan.laporan', ['laporans'=> $laporan]);
     }
@@ -36,10 +39,15 @@ class LaporanController extends Controller
         $now = Carbon::now();
 
         $thnBulan = $now->year . $now->month;
-        $urut = '001';
+
+        $urut = DB::table('laporans')->orderBy('id', 'desc')->first()->id;
+
         $token = 'LP'. $thnBulan;
 
-        return view('home.laporan.create', ['token'=> $token]);
+        // $id = DB::getPdo()->lastInsertId();
+
+
+        return view('home.laporan.create', ['token'=> $token, 'urut'=>$urut]);
     }
 
     /**

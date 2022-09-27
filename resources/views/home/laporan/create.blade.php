@@ -8,7 +8,7 @@
       <div class="form-group row m-3">
         <div class="col-sm-4">
           <input type="text" class="form-control form-control-user" id="token" name="token"
-          placeholder="token" value="<?php echo $token; ?>">
+          placeholder="token" value="<?php echo $token .$urut + '1';?>">
         </div>
         <div class="col-sm-4">
           <input type="text" class="form-control form-control-user" id="slug" name="slug"
