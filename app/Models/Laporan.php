@@ -4,16 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Cviebrock\EloquentSluggable\Sluggable;
 
 
 class Laporan extends Model
 {
-    use HasFactory, Sluggable;
+    use HasFactory;
 
     protected $fillable = [
         'token',
-        'slug',
         'nippencatat',
         'namapencatat',
         'tanggalmencatat',
@@ -31,16 +29,16 @@ class Laporan extends Model
         'mulaiservice',
         'selesaiservice',
     ];
-    public function sluggable(): array
-    {
-        return [
-            'slug' => [
-                'source' => 'title'
-            ]
-        ];
-    }
-    public function getRouteKeyName()
-    {
-    return 'slug';
-    }
+    // public function sluggable(): array
+    // {
+    //     return [
+    //         'slug' => [
+    //             'source' => 'title'
+    //         ]
+    //     ];
+    // }
+    // public function getRouteKeyName()
+    // {
+    // return 'slug';
+    // }
 }

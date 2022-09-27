@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('laporans', function (Blueprint $table) {
             $table->increments('id');
             $table->string('token');
-            $table->string('slug');
             $table->string('nippencatat');
             $table->string('namapencatat');
             $table->string('tanggalmencatat');

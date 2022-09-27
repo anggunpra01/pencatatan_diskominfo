@@ -21,7 +21,6 @@ class LaporanController extends Controller
         $laporan = Laporan::all();
         
        
-        $urut = DB::table('laporans')->orderBy('id', 'desc')->first()->id;
 
         // dd($urut);
 
@@ -37,12 +36,14 @@ class LaporanController extends Controller
     {
         $tanggals = Carbon::now()->format('Y-m-d');
         $now = Carbon::now();
-
-        $thnBulan = $now->year . $now->month;
-
+        
         $urut = DB::table('laporans')->orderBy('id', 'desc')->first()->id;
+        $thnBulan = $now->year . $now->month;
+        
 
-        $token = 'LP'. $thnBulan;
+        $token = 'LP'. $thnBulan . sprintf('%03d', $urut +1);
+        
+    
 
         // $id = DB::getPdo()->lastInsertId();
 
@@ -62,7 +63,6 @@ class LaporanController extends Controller
         // dd($request->all());
         $validatedDate = $request->validate([
             'token' => 'required',
-            'slug' => 'required',
             'nippencatat' => 'required',
             'namapencatat' => 'required',
             'tanggalmencatat' => 'required',
@@ -112,9 +112,9 @@ class LaporanController extends Controller
      * @param  \App\Models\Laporan  $laporan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Laporan $laporan)
+    public function update(Request $request)
     {
-        $rules =$request->validate([
+        $request->validate([
             'token' => 'required',
             'slug' => 'required',
             'nippencatat' => 'required',
@@ -134,10 +134,10 @@ class LaporanController extends Controller
             'mulaiservice',
             'selesaiservice'
         ]);
-        if ($request->slug != $laporan->slug){
-            $rules['slug']='required';
-        }
-        Laporan::where ('token', $laporan->token)->update($rules); 
+        // if ($request->slug != $laporan->slug){
+        //     $rules['slug']='required';
+        // }
+        // Laporan::where ('token', $laporan->token)->update($rules); 
         return redirect('/home/laporan')->with('succes', 'Laporan has been Added');
     }
 
@@ -153,13 +153,6 @@ class LaporanController extends Controller
         return redirect('/home/laporan')->with('succes', 'Laporan has been deleted');
     }
 
-
-
-    public function cekSlug(Request $request)
-    {
-        $slug = SlugService::createSlug(Laporan::class, 'slug', $request->token);
-        return response()->json(['slug' => $slug]);
-    }
 
     // delete
     public function delete($id)
