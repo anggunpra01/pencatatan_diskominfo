@@ -40,7 +40,7 @@
             <div class="col-sm-15 mb-5 mb-sm-3">
               <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
               </div>
-              <button class="w-100 btn btn-lg btn-dark" type="submit">Sign in</button>
+              <button class="w-100 btn btn-lg btn-dark" type="submit">Masuk</button>
           </form>
         </main>
      
