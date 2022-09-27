@@ -28,7 +28,10 @@
         <tr>
           <td>{{ $loop->iteration }}</td>
           <td>{{ $post->token }}</td>
-          <td>{{ $post->tanggalmencatat }}</td>
+          <?php
+            $date = new DateTime($post->tanggalmencatat);
+          ?>
+          <td>{{ $date->format('d/m/Y')}}</td>
           <td>{{ $post->namapelapor }}</td>
           <td>{{ $post->namabidang }}</td>
           <td>{{ $post->kategori }}</td>

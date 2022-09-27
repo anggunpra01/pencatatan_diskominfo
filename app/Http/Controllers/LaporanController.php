@@ -34,7 +34,8 @@ class LaporanController extends Controller
      */
     public function create()
     {
-        $tanggals = Carbon::now()->format('Y-m-d');
+       
+        //token
         $now = Carbon::now();
         
         $urut = DB::table('laporans')->orderBy('id', 'desc')->first()->id;
@@ -43,10 +44,6 @@ class LaporanController extends Controller
 
         $token = 'LP'. $thnBulan . sprintf('%03d', $urut +1);
         
-    
-
-        // $id = DB::getPdo()->lastInsertId();
-
 
         return view('home.laporan.create', ['token'=> $token, 'urut'=>$urut]);
     }
