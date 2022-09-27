@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LaporanController;
-use App\Http\Controllers\PencatatController;
+use App\Http\Controllers\InventarisController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,4 +38,6 @@ Route::get('/dashboard', function () {
 Route::get('/home/cekSlug', [LaporanController::class, 'cekSlug']);
 Route::resource('/home/laporan', LaporanController::class);
 Route::post('/logout', [UserController::class, 'logout']);
+
+Route::resource('/home/inventaris', InventarisController::class);
 

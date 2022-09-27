@@ -25,6 +25,12 @@
               </a>
             </li>
             <li class="nav-item">
+              <a class="nav-link {{ Request::is('home/inventaris')?'active':'' }}" aria-current="page" href="/home/inventaris">
+                <span data-feather="file-text"></span>
+                Inventaris
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link " href="/login">
                 <span data-feather="log-out"></span>
                 Logout
