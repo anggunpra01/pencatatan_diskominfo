@@ -41,7 +41,7 @@
           <td>
             <a href="#" class="badge bg-info"><span data-feather="eye" ></span></a>
             <a href="#" class="badge bg-warning"><span data-feather="edit" ></span></a>
-            <form action="/home/laporan/{{ $post->token }}" method="post" class="d-inline">
+            <form action="/home/laporan/{{ $post->id }}" method="post" class="d-inline">
             @method('delete')
             @csrf
             <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"  ><span data-feather="trash" ></span></button>

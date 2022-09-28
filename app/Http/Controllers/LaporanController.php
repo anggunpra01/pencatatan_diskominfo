@@ -19,9 +19,6 @@ class LaporanController extends Controller
     public function index()
     {
         $laporan = Laporan::all();
-        
-       
-
         // dd($urut);
 
         return view('home.laporan.laporan', ['laporans'=> $laporan]);
