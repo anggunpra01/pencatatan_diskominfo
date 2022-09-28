@@ -92,10 +92,12 @@ class LaporanController extends Controller
     }
 
     // edit
-    public function edit(Laporan $laporan)
+    public function edit($id)
     {
+        $edit = Laporan::find($id);
+     
         return view ('home.laporan.edit',[
-            'laporan'=>$laporan
+            'edit'=>$edit
         ]);
     }
 
@@ -106,33 +108,21 @@ class LaporanController extends Controller
      * @param  \App\Models\Laporan  $laporan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $request->validate([
-            'token' => 'required',
-            'slug' => 'required',
-            'nippencatat' => 'required',
-            'namapencatat' => 'required',
-            'tanggalmencatat' => 'required',
-            'namapelapor' => 'required',
-            'namabidang' => 'required',
-            'nomorhp' => 'required',
-            'permasalahan' => 'required',
-            'nipeksekutor' => 'required',
-            'namaeksekutor' => 'required',
-            'kategori' => 'required',
-            'status' => 'required',
-            'tanggalselesai' => 'required',
-            'solusi' => 'required',
-            'namavendor',
-            'mulaiservice',
-            'selesaiservice'
+        Laporan::where('id', $id)->update([
+            'nipeksekutor' => $request->nipeksekutor,
+            'namaeksekutor' => $request->namaeksekutor,
+            'kategori' => $request->kategori,
+            'status' => $request->status,
+            'tanggalselesai' => $request->tanggalselesai,
+            'solusi' => $request->solusi
         ]);
-        // if ($request->slug != $laporan->slug){
-        //     $rules['slug']='required';
-        // }
-        // Laporan::where ('token', $laporan->token)->update($rules); 
-        return redirect('/home/laporan')->with('succes', 'Laporan has been Added');
+        
+        $request->accepts('session');
+        session()->flash('success', 'Berhasil mengubah data pegawai!');
+
+        return redirect()->back();
     }
 
     /**

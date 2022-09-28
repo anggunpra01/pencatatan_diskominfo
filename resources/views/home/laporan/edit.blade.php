@@ -1,7 +1,7 @@
 @extends('home.layouts.main')
 @section('container')
 <div class="mb-1 mt-3 border shadow">
-  <form method="post" action="/home/laporan/{{ $laporan->slug }}">
+  <form method="post" action="/home/laporan/{{ $edit->id }}">
     @method('put')
     @csrf
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-1 pb-2 mb-1 m-3  border-bottom border-3 border-primary">
@@ -12,27 +12,22 @@
           <input type="text" class="form-control form-control-user" id="token" name="token" placeholder="token" value="@if (old('token'))
           {{ old('token') }}
           @else
-          {{ $laporan->token }}
+          {{ $edit->token }}
           @endif
           " readonly disabled>
         </div>
-        <div class="col-sm-2">
-          <label>Slug</label>
-          <input type="text" class="form-control form-control-user" id="slug" name="slug" placeholder="slug" value="
-          {{ $laporan->token }}
-         " readonly disabled>
-        </div>
+     
         <div class="col-sm-2">
           <label>Tanggal Mencatat</label>
-          <input type="date" class="form-control" id="tanggalmencatat" name="tanggalmencatat" value="{{$laporan->tanggalmencatat}}" placeholder="tanggal mencatat" readonly disabled>
+          <input type="date" class="form-control" id="tanggalmencatat" name="tanggalmencatat" value="{{$edit->tanggalmencatat}}" placeholder="tanggal mencatat" readonly disabled>
         </div>
         <div class="col-sm-2">
           <label>Nip Pencatat</label>
-          <input type="text" class="form-control form-control-user" id="nippencatat" name="nippencatat" value="{{$laporan->nippencatat}}" placeholder="Nip Pencatat" readonly>
+          <input type="text" class="form-control form-control-user" id="nippencatat" name="nippencatat" value="{{$edit->nippencatat}}" placeholder="Nip Pencatat" readonly disabled>
         </div>
         <div class="col-sm-2">
           <label>Nama Pencatat</label>
-          <input type="text" class="form-control form-control-user" id="namapencatat" name="namapencatat" value="{{$laporan->namapencatat}}" placeholder="Nama Pencatat" readonly>
+          <input type="text" class="form-control form-control-user" id="namapencatat" name="namapencatat" value="{{$edit->namapencatat}}" placeholder="Nama Pencatat" readonly disabled>
         </div>
       </div>
     </div>
@@ -48,13 +43,13 @@
               <div class="form-group row">
                   <div class="col-sm-8 mb-2 mb-sm-2">
                       <label>Nama Pelapor</label>
-                      <input type="text" class="form-control form-control-user" id="namapelapor" name="namapelapor" value="{{$laporan->namapelapor}}" placeholder="Nama Pelapor" readonly>
+                      <input type="text" class="form-control form-control-user" id="namapelapor" name="namapelapor" value="{{$edit->namapelapor}}" placeholder="Nama Pelapor" readonly>
                   </div>
               
                 <div class="form-group row  ">
                   <div class="col-sm-8 mb-2 mb-sm-2">
                   <label for="floatingInput">Nama Bidang</label>
-                  <select class="form-select" id="namabidang" name="namabidang" aria-label="Floating label select example" placeholder="Nama Bidang" value="{{$laporan->namabidang}}" readonly >
+                  <select class="form-select" id="namabidang" name="namabidang" aria-label="Floating label select example" placeholder="Nama Bidang" value="{{$edit->namabidang}}" readonly >
                   <option value="KEU">KEUANGAN</option>
                   <option value="PRC">PERENCANAAN</option>
                   <option value="KPG">KEPEGAWAIAN</option>
@@ -68,12 +63,12 @@
                 </div>
                 <div class="col-sm-8 mb-2 mb-sm-2">
                   <label>Nomor HP</label>
-                  <input type="text" class="form-control form-control-user" id="nomorhp" name="nomorhp" value="{{$laporan->nomorhp}}" placeholder="Nomor Hp" readonly>
+                  <input type="text" class="form-control form-control-user" id="nomorhp" name="nomorhp" value="{{$edit->nomorhp}}" placeholder="Nomor Hp" readonly>
                 </div>
               </div>
             <div class=" col-sm-10 mb-2 mb-sm-2 ">
             <textarea type="text" class="form-control form-control-user" style="height: 100px" id="permasalahan" name="permasalahan"
-            placeholder="Permasalahan" readonly>{{$laporan->permasalahan}}</textarea>
+            placeholder="Permasalahan" readonly>{{$edit->permasalahan}}</textarea>
             </div>
         </div>
       {{-- endpelapor --}}
@@ -85,11 +80,11 @@
         <div class="form-group row ">
           <div class="col-sm-5 mb-2 mb-sm-2">
               <input type="text" class="form-control form-control-user" id="nipeksekutor" name="nipeksekutor"
-                  placeholder="Nip Eksekutor" value="{{ $laporan ->nipeksekutor }}">
+                  placeholder="Nip Eksekutor" value="{{ $edit ->nipeksekutor }}">
           </div>
           <div class="col-sm-5">
               <input type="text" class="form-control form-control-user" id="namaeksekutor" name="namaeksekutor"
-                  placeholder="Nama Eksekutor" value="{{ $laporan->namaeksekutor }}">
+                  placeholder="Nama Eksekutor" value="{{ $edit->namaeksekutor }}">
           </div>
         </div>
         <div class="form-group row ">
@@ -107,14 +102,14 @@
               <label for="floatingInput">Status</label>
               <select class="form-select" id="status" name="status" aria-label="Floating label select example" placeholder="Hak Akses">
                 <option value="Self Service">Self Service</option>
-                <option value="Vendor" value="{{ $laporan->namavendor }}">Vendor</option>
+                <option value="Vendor" value="{{ $edit->namavendor }}">Vendor</option>
               </select>
           </div>
         </div>
           <div class="col-sm-8 mb-2 mb-sm-2 ">
             <div class="input-group">
                 <div class="form-floating">
-                  <input type="date" class="form-control" id="tanggalselesai" name="tanggalselesai" placeholder="tanggalselesai" value="{{ $laporan->tanggalselesai }}">
+                  <input type="date" class="form-control" id="tanggalselesai" name="tanggalselesai" placeholder="tanggalselesai" value="{{ $edit->tanggalselesai }}">
                   <label for="floatingInputGroup1">Tanggal Selesai</label>
                 </div>
             </div>
@@ -122,7 +117,7 @@
         <div class="form-group row ">
           <div class=" col-sm-10 mb-2 mb-sm-2 ">
             <textarea type="text" class="form-control form-control-user" style="height: 100px " id="solusi " name="solusi"
-            placeholder="Solusi Deskripsi">{{ $laporan->solusi }}</textarea>
+            placeholder="Solusi Deskripsi">{{ $edit->solusi }}</textarea>
           </div> 
         </div>
         <button class="col-sm-3 m-2 mb-1 btn btn-primary btn-user btn-block">Update</button>
@@ -132,15 +127,4 @@
 </form>
 
 </div>
-
-<script>
-  const token = document.querySelector('#token');
-  const slug = document.querySelector('#slug');
-
-  token.addEventListener('change', function() {
-    fetch('/home/cekSlug?token=' + token.value)
-      .then(response => response.json())
-      .then(data => slug.value = data.slug)
-  });
-</script>
 @endsection
