@@ -122,21 +122,37 @@
                             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                             <script type="text/javascript">
                                 var otherInput;
+                                var mulaiservice, selesaiservice;
                                 var serviceTypeInput = $('#status');
                                 serviceTypeInput.on('change', function() {
-                                    otherInput = $('#otherInput');
+                                    otherInput = $('#namavendor');
+                                    mulaiservice = $('#mulaiservice');
+                                    selesaiservice = $('#selesaiservice');
                                     if (serviceTypeInput.val() == "Vendor") {
                                         otherInput.show();
+                                        mulaiservice.show();
+                                        selesaiservice.show();
                                     } else {
                                         otherInput.hide();
+                                        mulaiservice.hide();
+                                        selesaiservice.hide();
                                     }
                                 });
                             </script>
                         </div>
                         {{-- other field --}}
                         <div class="col-sm-5 mb-3">
-                            <input class="form-control form-control-user" name='otherInput' id='otherInput' type="text" placeholder="Nama Vendor"
-                                style="display: none">
+                            <input class="form-control form-control-user" name='namavendor' id='namavendor'
+                                type="text" placeholder="Nama Vendor" style="display: none">
+                        </div>
+                        <div class="col-sm-3">
+                            {{-- tanggal --}}
+                            <input type="date" class="form-control" id="mulaiservice" name="mulaiservice"
+                                placeholder="mulaiservice" style="display: none">
+                        </div>
+                        <div class="col-sm-3">
+                          <input type="date" class="form-control" id="selesaiservice" name="selesaiservice"
+                                placeholder="selesaiservice" style="display: none">
                         </div>
                     </div>
                     <div class="col-sm-8 mb-2 mb-sm-2 ">

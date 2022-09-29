@@ -89,7 +89,7 @@ class LaporanController extends Controller
     {
 
         $laporan = Laporan::find($id);
-        
+
         return view('home.laporan.show',[
             'laporan'=> $laporan]);
     }
@@ -119,7 +119,10 @@ class LaporanController extends Controller
             'kategori' => $request->kategori,
             'status' => $request->status,
             'tanggalselesai' => $request->tanggalselesai,
-            'solusi' => $request->solusi
+            'solusi' => $request->solusi,
+            'namavendor' => $request->namavendor,
+            'mulaiservice' => $request->mulaiservice,
+            'selesaiservice' => $request->selesaiservice,
         ]);
         
         $request->accepts('session');
