@@ -28,16 +28,14 @@
         <tr>
           <td>{{ $loop->iteration }}</td>
           <td>{{ $post->token }}</td>
-          <?php
-            $date_selesai = new DateTime($post->tanggalselesai);
-          ?>
           <td>{{ $post->tanggalmencatat}}</td>
           <td>{{ $post->namapelapor }}</td>
           <td>{{ $post->namabidang }}</td>
           <td>{{ $post->kategori }}</td>
           <td>{{ $post->status }}</td>
           <td>{{ $post->namaeksekutor}}</td>
-          <td>{{ $date_selesai->format('d/m/Y') }}</td>
+
+          <td>{{ $post->tanggalselesai }}</td>
           <td>
             <a href="/home/laporan/{{ $post->id }}" class="badge bg-info"><span data-feather="eye" ></span></a>
             <a href="{{ url('laporan/' . $post->id) }}" class="badge bg-warning"><span data-feather="edit" ></span></a>
