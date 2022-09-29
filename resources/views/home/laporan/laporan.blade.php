@@ -39,7 +39,7 @@
           <td>{{ $post->namaeksekutor}}</td>
           <td>{{ $post->tanggalselesai }}</td>
           <td>
-            <a href="#" class="badge bg-info"><span data-feather="eye" ></span></a>
+            <a href="/home/laporan/{{ $post->id }}" class="badge bg-info"><span data-feather="eye" ></span></a>
             <a href="{{ url('laporan/' . $post->id) }}" class="badge bg-warning"><span data-feather="edit" ></span></a>
             <form action="/home/laporan/{{ $post->id }}" method="post" class="d-inline">
             @method('delete')

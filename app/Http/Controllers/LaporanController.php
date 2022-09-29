@@ -85,8 +85,11 @@ class LaporanController extends Controller
      * @param  \App\Models\Laporan  $laporan
      * @return \Illuminate\Http\Response
      */
-    public function show(Laporan $laporan)
+    public function show($id)
     {
+
+        $laporan = Laporan::find($id);
+        
         return view('home.laporan.show',[
             'laporan'=> $laporan]);
     }

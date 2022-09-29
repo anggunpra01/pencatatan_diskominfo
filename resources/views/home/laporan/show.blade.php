@@ -9,7 +9,7 @@
     <table class="table table-striped table-sm">
       <tbody>
         <tr>
-            <a href="/home/laporan/{{ $edit->id }}/edit" class="badge bg-warning"><span data-feather="edit" ></span></a>
+            <a href="/home/laporan/{{ $laporan->id }}/edit" class="badge bg-warning"><span data-feather="edit" ></span></a>
         </tr>
         <tr>
             <th>Tanggal Mencatat</th>

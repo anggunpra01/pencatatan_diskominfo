@@ -42,3 +42,4 @@ Route::resource('/home/inventaris', InventarisController::class);
 
 Route::match(['get', 'post'], '/laporan/{id}', [LaporanController::class,'edit']);
 Route::post('/laporan/{id}', [LaporanController::class,'update']);
+Route::get('/home/laporan/{id}', [LaporanController::class, 'show']);
