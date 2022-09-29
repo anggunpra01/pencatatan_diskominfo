@@ -29,10 +29,9 @@
           <td>{{ $loop->iteration }}</td>
           <td>{{ $post->token }}</td>
           <?php
-            $date_mencatat = new DateTime($post->tanggalmencatat);
             $date_selesai = new DateTime($post->tanggalselesai);
           ?>
-          <td>{{ $date_mencatat->format('d/m/Y')}}</td>
+          <td>{{ $post->tanggalmencatat}}</td>
           <td>{{ $post->namapelapor }}</td>
           <td>{{ $post->namabidang }}</td>
           <td>{{ $post->kategori }}</td>

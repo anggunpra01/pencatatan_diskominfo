@@ -34,6 +34,8 @@ class LaporanController extends Controller
        
         //token
         $now = Carbon::now();
+
+        $tglLaporan = Carbon::now()->format('d/m/Y');
         
         $urut = DB::table('laporans')->orderBy('id', 'desc')->first()->id;
         $thnBulan = $now->year . $now->month;
@@ -42,7 +44,7 @@ class LaporanController extends Controller
         $token = 'LP'. $thnBulan . sprintf('%03d', $urut +1);
         
 
-        return view('home.laporan.create', ['token'=> $token, 'urut'=>$urut]);
+        return view('home.laporan.create', ['token'=> $token, 'urut'=>$urut, 'tglLaporan'=>$tglLaporan]);
     }
 
     /**

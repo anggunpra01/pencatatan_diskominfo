@@ -12,8 +12,8 @@
                             placeholder="token" value="<?php echo $token; ?>">
                     </div>
                     <div class="col-sm-4">
-                        <input type="date" class="form-control" id="tanggalmencatat" name="tanggalmencatat"
-                            placeholder="tanggal mencatat">
+                        <input type="text" class="form-control" id="tanggalmencatat" name="tanggalmencatat"
+                            placeholder="tanggal mencatat" value="<?php echo $tglLaporan; ?>" >
                     </div>
                 </div>
             </div>
