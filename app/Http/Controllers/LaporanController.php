@@ -78,6 +78,8 @@ class LaporanController extends Controller
         ]);
 
         Laporan::create($validatedDate); 
+        $request->accepts('session');
+        session()->flash('success', 'Laporan berhasil dibuat!');
         return redirect('/home/laporan')->with('succes', 'New Post has been Added');
     }
 
@@ -130,7 +132,7 @@ class LaporanController extends Controller
         $request->accepts('session');
         session()->flash('success', 'Berhasil mengubah data pegawai!');
 
-        return redirect()->back();
+        return redirect('/home/laporan')->with('succes', 'New Post has been Added');
     }
 
     /**
@@ -151,6 +153,9 @@ class LaporanController extends Controller
     {
         $laporan = Laporan::find($id);
         $laporan->delete();
+        $id->accepts('session');
+        session()->flash('success', 'Laporan Berhasil dihapus');
+        
         return redirect('/home/laporan')->with('success', 'Laporan berhasil dihapus');
     }
 }

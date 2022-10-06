@@ -3,9 +3,18 @@
     <div class=" mb-1 mt-3 border shadow">
         <form action="/create" method="post">
             @csrf
-            <div
-                class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-1 pb-2 mb-1 m-3 border-bottom border-3 border-primary">
-                <h1 class="h2">Laporan</h1>
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-1 pb-2 mb-1 m-3 border-bottom border-3 border-primary">
+
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-2">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="/home/laporan" style="color: blue">
+                                 <span data-feather="chevron-left" ></span> Kembali
+                                </a>
+                            </li>
+                            <li>
+                                <h1 class="h2">Laporan</h1>
+                            </li>
+                 </ul>
                 <div class="form-group row m-3">
                     <div class="col-sm-4">
                         <input type="text" class="form-control form-control-user" id="token" name="token"

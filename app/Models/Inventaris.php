@@ -9,16 +9,16 @@ class Inventaris extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'kode_inventaris',
-        'nomor_seri',
-        'tahun pembelian',
-        'kondisi',
-        'keterangan',
-        'bidang',
-        'pengguna',
-        'lokasi_fisik',
+        'kodeInventaris',
+        'kategori',
         'merk',
         'tipe',
-        'kategori'
+        'nomorSeri',
+        'tahunPembelian',
+        'kondisi',
+        'lokasiFisik',
+        'bidang',
+        'pengguna',
+        'keterangan'
     ];
 }

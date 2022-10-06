@@ -2,10 +2,23 @@
 
 @section('container')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-2 border-bottom">
-
     <h1 class="h2">Laporan</h1>
   </div>
   <div class="table-responsive col-lg-20">
+
+    @if (session()->has('success'))
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      {{ session('success') }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+    @if (session()->has('loginError'))
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      {{ session('loginError') }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+    
     <a href="/home/laporan/create" class="btn btn-primary mb-3">Buat Laporan Baru</a>
     <table class="table table-striped table-sm">
       <thead>

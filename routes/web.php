@@ -34,7 +34,6 @@ Route::get('/dashboard', function () {
 })->middleware('auth');
 
 
-// Route::get('/home/cekSlug', [LaporanController::class, 'cekSlug']);
 Route::resource('/home/laporan', LaporanController::class);
 Route::post('/logout', [UserController::class, 'logout']);
 

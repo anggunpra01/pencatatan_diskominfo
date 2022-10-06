@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Inventaris;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class InventarisController extends Controller
 {
@@ -14,7 +15,8 @@ class InventarisController extends Controller
      */
     public function index()
     {
-        return view('home.inventaris.inventaris');
+        $inventaris = Inventaris::all();
+        return view('home.inventaris.inventaris', ['inventarist'=> $inventaris]);
     }
 
     /**
@@ -24,7 +26,8 @@ class InventarisController extends Controller
      */
     public function create()
     {
-        //
+       
+        return view('home.inventaris.create');
     }
 
     /**
@@ -35,7 +38,23 @@ class InventarisController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedDate = $request->validate([
+            'kode_inventaris',
+            'kategori',
+            'merk',
+            'tipe',
+            'nomor_seri',
+            'tahun_pembelian',
+            'kondisi',
+            'lokasi_fisik',
+            'bidang',
+            'pengguna',
+            'keterangan'
+        ]);
+        Inventaris::create($validatedDate); 
+        $request->accepts('session');
+        session()->flash('success', 'Laporan berhasil dibuat!');
+        return redirect('/home/inventaris')->with('succes', 'New Post has been Added');
     }
 
     /**
@@ -44,9 +63,12 @@ class InventarisController extends Controller
      * @param  \App\Models\Inventaris  $inventaris
      * @return \Illuminate\Http\Response
      */
-    public function show(Inventaris $inventaris)
+    public function show($id)
     {
-        //
+        $inventaris = Inventaris::find($id);
+
+        return view('home.laporan.show',[
+            'laporan'=> $inventaris]);
     }
 
     /**
@@ -55,9 +77,13 @@ class InventarisController extends Controller
      * @param  \App\Models\Inventaris  $inventaris
      * @return \Illuminate\Http\Response
      */
-    public function edit(Inventaris $inventaris)
+    public function edit($id)
     {
-        //
+        $edit = Inventaris::find($id);
+     
+        return view ('home.inventaris.edit',[
+            'edit'=>$edit
+        ]);
     }
 
     /**
