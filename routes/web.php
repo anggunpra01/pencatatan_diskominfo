@@ -38,6 +38,7 @@ Route::resource('/home/laporan', LaporanController::class);
 Route::post('/logout', [UserController::class, 'logout']);
 
 Route::resource('/home/inventaris', InventarisController::class);
+Route::post('/store-inventaris',[InventarisController::class, 'store']);
 
 Route::match(['get', 'post'], '/laporan/{id}', [LaporanController::class,'edit']);
 Route::post('/laporan/{id}', [LaporanController::class,'update']);

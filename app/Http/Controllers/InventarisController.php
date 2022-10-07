@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Inventaris;
+use App\Models\Laporan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -15,8 +16,8 @@ class InventarisController extends Controller
      */
     public function index()
     {
-        $inventaris = Inventaris::all();
-        return view('home.inventaris.inventaris', ['inventarist'=> $inventaris]);
+        $data = DB::select("SELECT * FROM inventaries");
+        return view('home.inventaris.inventaris',compact('data'));
     }
 
     /**
@@ -38,23 +39,12 @@ class InventarisController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedDate = $request->validate([
-            'kode_inventaris',
-            'kategori',
-            'merk',
-            'tipe',
-            'nomor_seri',
-            'tahun_pembelian',
-            'kondisi',
-            'lokasi_fisik',
-            'bidang',
-            'pengguna',
-            'keterangan'
-        ]);
-        Inventaris::create($validatedDate); 
+        Inventaris::create($request->all());
+        
         $request->accepts('session');
-        session()->flash('success', 'Laporan berhasil dibuat!');
-        return redirect('/home/inventaris')->with('succes', 'New Post has been Added');
+        session()->flash('success', 'Berhasil menambahkan data!');
+
+        return back();
     }
 
     /**
@@ -65,10 +55,8 @@ class InventarisController extends Controller
      */
     public function show($id)
     {
-        $inventaris = Inventaris::find($id);
-
-        return view('home.laporan.show',[
-            'laporan'=> $inventaris]);
+        
+        return view('home.laporan.show');
     }
 
     /**
@@ -79,11 +67,7 @@ class InventarisController extends Controller
      */
     public function edit($id)
     {
-        $edit = Inventaris::find($id);
-     
-        return view ('home.inventaris.edit',[
-            'edit'=>$edit
-        ]);
+       
     }
 
     /**
@@ -93,7 +77,7 @@ class InventarisController extends Controller
      * @param  \App\Models\Inventaris  $inventaris
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Inventaris $inventaris)
+    public function update()
     {
         //
     }
@@ -104,7 +88,7 @@ class InventarisController extends Controller
      * @param  \App\Models\Inventaris  $inventaris
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Inventaris $inventaris)
+    public function destroy()
     {
         //
     }

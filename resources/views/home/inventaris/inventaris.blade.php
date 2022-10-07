@@ -18,24 +18,22 @@
           <th scope="col">Bidang</th>
           <th scope="col">Pengguna</th>
           <th scope="col">Action</th>
-
-          
         </tr>
       </thead>
       <tbody>
-        @foreach ($inventarist as $post )  
+        @foreach ($data as $item )  
         <tr>
           <td>{{ $loop->iteration }}</td>
-          <td>{{ $post->kode_inventaris }}</td>
-          <td>{{ $post->kategori }}</td>
-          <td>{{ $post->tahun_pembelian }}</td>
-          <td>{{ $post->lokasi_fisik }}</td>
-          <td>{{ $post->bidang }}</td>
-          <td>{{ $post->pengguna}}</td>
+          <td>{{ $item->kodeInventaris }}</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
           <td>
-            <a href="/home/inventaris/{{ $post->id }}" class="badge bg-info"><span data-feather="eye" ></span></a>
-            <a href="{{ url('inventaris/' . $post->id) }}" class="badge bg-warning"><span data-feather="edit" ></span></a>
-            <form action="/home/inventaris/{{ $post->id }}" method="post" class="d-inline">
+            <a href="/home/inventaris/{{ $item->id }}" class="badge bg-info"><span data-feather="eye" ></span></a>
+            <a href="{{ url('inventaris/' . $item->id) }}" class="badge bg-warning"><span data-feather="edit" ></span></a>
+            <form action="/home/inventaris/{{ $item->id }}" method="post" class="d-inline">
             @method('delete')
             @csrf
             <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"  ><span data-feather="trash" ></span></button>
