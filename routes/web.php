@@ -43,3 +43,7 @@ Route::post('/store-inventaris',[InventarisController::class, 'store']);
 Route::match(['get', 'post'], '/laporan/{id}', [LaporanController::class,'edit']);
 Route::post('/laporan/{id}', [LaporanController::class,'update']);
 Route::get('/home/laporan/{id}', [LaporanController::class, 'show']);
+
+Route::match(['get', 'post'], '/inventaris/{id}', [InventarisController::class,'edit']);
+Route::post('/inventaris/{id}', [InventarisController::class,'update']);
+Route::get('/delete/{id}',[InventarisController::class, 'delete']);

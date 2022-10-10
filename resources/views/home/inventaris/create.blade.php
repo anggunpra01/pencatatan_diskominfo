@@ -23,40 +23,48 @@
                 <div class="col-sm-11 mb-0 mb-sm-1  bg-darkborder shadow">
                     <div class="form-group row  justify-content-center mt-3">
                         <div class="col-sm-3 mb-5 mb-sm-3">
+                            <label>Kode Inventaris</label>
                             <input type="text" class="form-control form-control-user" id="kodeInventaris" name="kodeInventaris"
-                                placeholder="kodeInventaris">
-                        </div>
-                        {{-- <div class="col-sm-3">
-                            <input type="text" class="form-control form-control-user" id="kategori" name="kategori"
-                                placeholder="Kategori">
+                                >
                         </div>
                         <div class="col-sm-3">
+                            <label>Kategori</label>
+                            <input type="text" class="form-control form-control-user" id="kategori" name="kategori"
+                                >
+                        </div>
+                        <div class="col-sm-3">
+                            <label>Merk</label>
                             <input type="text" class="form-control form-control-user" id="merk" name="merk"
-                                placeholder="Merk">
+                               >
                         </div>
                     </div>
                     <div class="form-group row  justify-content-center mt-3">
                         <div class="col-sm-3 mb-5 mb-sm-3">
+                            <label>Tipe</label>
                             <input type="text" class="form-control form-control-user" id="tipe" name="tipe"
-                                placeholder="Tipe">
+                               >
                         </div>
                         <div class="col-sm-3">
+                            <label>Nomor Seri</label>
                             <input type="text" class="form-control form-control-user" id="nomorSeri" name="nomorSeri"
-                                placeholder="Nomor Seri">
+                                >
                         </div>
                         <div class="col-sm-3">
+                            <label>Tahun Pembelian</label>
                             <input type="text" class="form-control form-control-user" id="tahunPembelian"
-                                name="tahun_pembelian" placeholder="Tahun Pembelian">
+                                name="tahunPembelian" >
                         </div>
                     </div>
                     <div class="form-group row  justify-content-center">
                         <div class="col-sm-3 mb-5 mb-sm-3">
+                            <label>Kondisi</label>
                             <input type="text" class="form-control form-control-user" id="kondisi" name="kondisi"
-                                placeholder="Kondisi">
+                               >
                         </div>
                         <div class="col-sm-3">
+                            <label>Lokasi Fisik</label>
                             <input type="text" class="form-control form-control-user" id="lokasiFisik" name="lokasiFisik"
-                                placeholder="Lokasi Fisik">
+                               >
                         </div>
                         <div class="col-sm-3 mb-5 mb-sm-3">
                             <label for="floatingInput">Nama Bidang</label>
@@ -72,17 +80,21 @@
                                     INFORMASI</option>
                             </select>
                         </div>
-                    </div> --}}
+                    </div>
                     <div class="form-group row  justify-content-center">
-                        {{-- <div class="col-sm-3 mb-5 mb-sm-3">
+                        <div class="col-sm-3 mb-5 mb-sm-3">
+                            <label>Pengguna</label>
                             <input type="text" class="form-control form-control-user" id="pengguna" name="pengguna"
-                                placeholder="Pengguna">
+                                >
                         </div>
                         <div class="col-sm-3">
+                            <label>Keterangan</label>
                             <input type="text" class="form-control form-control-user" id="keterangan" name="keterangan"
-                                placeholder="Keterangan">
-                        </div> --}}
-                        <button class="col-sm-3  btn btn-primary btn-user btn-block justify-content-center">Selesai</button>
+                                >
+                        </div>
+                    </div>
+                    <div class="row  justify-content-center">
+                        <button class="col-sm-3 mb-3  btn btn-primary btn-user btn-block">Selesai</button>
                     </div>
                 </div>
                 {{-- endbarang --}}

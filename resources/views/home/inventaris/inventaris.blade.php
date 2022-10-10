@@ -6,7 +6,7 @@
     <h1 class="h2">Inventaris</h1>
   </div>
   <div class="table-responsive col-lg-20">
-    <a href="/home/inventaris/create" class="btn btn-primary mb-3">Buat Laporan Baru</a>
+    <a href="/home/inventaris/create" class="btn btn-primary mb-3">Inventaris Baru</a>
     <table class="table table-striped table-sm">
       <thead>
         <tr>
@@ -25,11 +25,11 @@
         <tr>
           <td>{{ $loop->iteration }}</td>
           <td>{{ $item->kodeInventaris }}</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{ $item->kategori }}</td>
+          <td>{{ $item->tahunPembelian }}</td>
+          <td>{{ $item->lokasiFisik }}</td>
+          <td>{{ $item->bidang }}</td>
+          <td>{{ $item->pengguna }}</td>
           <td>
             <a href="/home/inventaris/{{ $item->id }}" class="badge bg-info"><span data-feather="eye" ></span></a>
             <a href="{{ url('inventaris/' . $item->id) }}" class="badge bg-warning"><span data-feather="edit" ></span></a>

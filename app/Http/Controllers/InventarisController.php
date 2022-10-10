@@ -44,7 +44,7 @@ class InventarisController extends Controller
         $request->accepts('session');
         session()->flash('success', 'Berhasil menambahkan data!');
 
-        return back();
+        return redirect('/home/inventaris');
     }
 
     /**
@@ -56,7 +56,10 @@ class InventarisController extends Controller
     public function show($id)
     {
         
-        return view('home.laporan.show');
+        $inventaris= Inventaris::find($id);
+
+        return view('home.inventaris.show',[
+            'inventaris'=> $inventaris]);
     }
 
     /**
@@ -67,7 +70,10 @@ class InventarisController extends Controller
      */
     public function edit($id)
     {
-       
+        $edit= Inventaris::find($id);
+
+        return view('home.inventaris.edit',[
+            'inventaris'=> $edit]);
     }
 
     /**
@@ -77,9 +83,14 @@ class InventarisController extends Controller
      * @param  \App\Models\Inventaris  $inventaris
      * @return \Illuminate\Http\Response
      */
-    public function update()
+    public function update(Request $request, $id)
     {
-        //
+        Inventaris::where('id', $id)->update($request->all());
+        
+        $request->accepts('session');
+        session()->flash('success', 'Berhasil menambahkan data!');
+
+        return redirect('/home/inventaris');
     }
 
     /**
@@ -88,8 +99,18 @@ class InventarisController extends Controller
      * @param  \App\Models\Inventaris  $inventaris
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
+    public function destroy(Inventaris $inventaris)
     {
-        //
+       Inventaris::destroy($inventaris->id);
+        return redirect('/home/inventaris')->with('succes', 'Laporan has been deleted');
     }
+    public function delete($id)
+    {
+        $inventaris = Inventaris::find($id);
+        $inventaris->delete();
+        $id->accepts('session');
+        session()->flash('success', 'Laporan Berhasil dihapus');
+        
+        return redirect('/home/inventaris')->with('success', 'Laporan berhasil dihapus');
+    } 
 }
